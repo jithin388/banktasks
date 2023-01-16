@@ -1,0 +1,27 @@
+{% block content %}
+
+<div>
+<form action="data" method = 'post'>
+{% csrf_token %}
+<input type = "text" id ="userget" name="userget" placeholder="enter user id">
+<input type = "submit">
+</div>
+</form>
+<div>
+{% for res in results  %}
+{{ res }}
+{{res.name}}
+{{res.name}}
+{{res.email}}
+{{res.phone}}
+{{res.address}}
+{{res.gender}}
+{{res.dob}}
+{{res.state}}
+{{res.city}}
+{{res.account}}
+{{res.material}}
+{% endfor %}
+
+</div>
+    {% endblock %}

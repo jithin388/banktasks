@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+<html>
+    <head>
+        <title>  Tset bank</title>
+        <link rel="stylesheet" href="style.css"/>
+        <style>
+            .card{
+                box-shodow: 0 4px 8px 0
+                rgba(0,0,0,0.2);
+                transition:0.3s;
+            }
+            .card:hover{
+                box-shadow:0 8px 16px 0 rgba(0,0,0,0.2):
+            }
+            .container1{
+                padding: 2px 16px;
+                background-color: #3498DB;
+                border:3px solid black;
+            }
+            .container{
+                position=relative;
+                height=50px;
+            }
+            .center{
+                margin:0;
+                position:absolute;
+                top:50%;
+                left:50%;
+                -ms-transform:translate(-50%,-50%);
+                transform:translate(-50%,-50%);
+            }
+    </style>
+    </head>
+    {% load static %}
+    {% block content %}
+    <!--<div class="container">-->
+        <!--{% include 'messages.html' %}-->
+        <!--<form method="POST">-->
+        <!--    <fieldset>-->
+        <!--        <legend>-->
+        <!--            Form-->
+        <!--        </legend>-->
+        <!--        {% csrf_token %}-->
+        <!--        {{form.as_p}}-->
+        <!--        <button type="submit" class="btn btn-primary">submit</button>-->
+        <!--    </fieldset>-->
+        <!--</form>-->
+    <!--</div>-->
+    <body >
+        <div style="background-image: url({% static 'image/base.jpg' %});">
+        <div class="container">
+            <div class="center">
+                <div class="card">
+                    <div class="container1">
+                         <div align="center">
+                         <h3>User login </h3>
+                         </div>
+                        <div align="center">
+                          <form action="logon" method="post">
+                            {% csrf_token %}
+                                <input type="text" name="username" id="username"placeholder="enter your username"> <br><br>
+                                <input type="password" name="password" id="password" placeholder="enter your password"><br> <br>
+                              <div align="center"><input type="submit">  </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+    </html>
+    {% endblock %}
+
+
+
+
+
+

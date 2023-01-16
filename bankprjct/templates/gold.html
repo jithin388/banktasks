@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        gold loan rates
+    </title>
+</head>
+<body>
+
+    <p> vist our nearest brach to get this service.</p>
+    {% for gold in gold  %}
+     <p >{% now "D d M Y" %} Gold rate</p>
+
+    <li>
+        gram rate{{gold.gram}}
+    </li>
+    <li>
+        carat{{gold.carat}}
+    </li>
+</body>
+    {% endfor %}
+    {% endblock %}
+</html>

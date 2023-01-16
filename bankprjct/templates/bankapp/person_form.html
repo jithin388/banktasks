@@ -1,0 +1,151 @@
+{% extends 'base4.html' %}
+
+{%  block content %}
+
+<style>
+  
+.card{
+  box-shodow: 0 4px 8px 0
+  rgba(0,0,0,0.2);
+  transition:0.3s;
+}
+.card:hover{
+  box-shadow:0 8px 16px 0 rgba(0,0,0,0.2):
+}
+.container1{
+
+  padding: 2px 16px;
+  background-color: #3498DB;
+  border:3px solid black;
+}
+.container{
+  position=relative;
+  height=50px;
+  width=60px;
+
+}
+.center{
+  margin:0;
+  position:absolute;
+  top:100%;
+  left:50%;
+  -ms-transform:translate(-50%,-40%);
+  transform:translate(-50%,-50%);
+
+}
+
+
+</style>
+<div class="container">
+  {% include 'header.html' %}
+</div>
+  <div class="container">
+
+    
+    <div class="center">
+        
+  
+                <form method="post" id="personForm" data-cities-url="{% url 'ajax_load_cities' %}" novalidate>
+                {% csrf_token %}
+                  <div class='container' align="center">
+                    <h3> user detail </h3>
+                  </div>
+                
+                    <div class="row row-cols-1 row-cols-md-2" >
+  
+                        <div class='container1'>
+                       
+                        <div class=" col-4"align='center'>
+                            {{form.username.label}}
+                            {{ form.username}}
+                        </div> 
+                        <div class=" col-4"> <br></div>
+                        <div class="col-4">
+                            {{form.name.label}}
+                            {{form.name}}
+                        </div>
+                        <div class=" col-4"><br></div>
+                        <div class="col-4">
+                            {{form.birthdate.label}}
+                            {{form.birthdate}}
+                        </div>
+                        <div class=" col-4"><br></div>
+                        <div class="col-4">
+                            {{form.email.label}}
+                            {{form.email}}
+                        </div>
+                        <div class=" col-4"><br></div>
+                        <div class="col-4">
+                            {{form.phone.label}}
+                            {{form.phone}}
+                        </div>
+                        <div class=" col-4"><br></div>
+                        <div class="col-4">
+                            {{form.state.label}}
+                            {{form.state}}
+                        </div>
+                        <div class=" col-4"><br></div>
+                        <div class="col-4  ">
+                            {{form.city.label}}
+                            {{form.city}}
+                        </div>
+                        <div class=" col-4"><br></div>
+                      </div>
+                   
+                  
+                      <div class='container1' >
+                        
+                        <div class="col-4">
+                            {{form.account.label}}
+                            {{form.account}}
+                        </div>
+                        <div class=" col-4"><br></div>
+                        <div class="col-4">
+                            {{form.material.label}}
+                            {{form.material}}
+                        </div>
+                        <div class=" col-4"><br></div>
+                        <div class="col-4">
+                            {{form.gender.label}}
+                            {{form.gender}}
+                        </div>
+                        <div class=" col-4"><br></div>
+                        <div class="col-4">
+                            {{form.address.label}}
+                            {{form.address}}
+                        </div>
+                      </div>
+                    </div>
+                   
+                    <div>
+                 <div align="center"> 
+                <button type="save">save</button>
+                 </div>
+              </form> 
+            </div>
+            <div class='footer'>
+              {% include 'footer.html'%}
+             </div>
+       
+    </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script>
+    $("#id_state").change(function () {
+      var url = $("#personForm").attr("data-cities-url");
+      var stateId = $(this).val();
+
+      $.ajax({
+        url: url,
+        data: {
+          'state': stateId
+        },
+        success: function (data) {
+          $("#id_city").html(data);
+        }
+      });
+
+    });
+  </script>
+
+{% endblock %}

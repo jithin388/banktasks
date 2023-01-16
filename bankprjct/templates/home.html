@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div>
+    <img  class="my_image my_image_padding" src="{% static 'image/banner1.png' %}" alt="our products" style= width=600 height=500>
+</div>
+<style>
+.column{
+    float:left;
+    width:25%;
+    padding:0 10px;
+}
+.row{
+    margin:0 -5px;
+}
+.row:after{
+    content:"";
+    display: table;
+    clear:both;
+}
+.card{
+    box-shadow:0 4px 8px 0
+    rgba(0,0,0,0.2);
+    padding:16px;
+    text-align:center;
+    background-color:#f1f1f1;
+
+}
+</style>
+<div class="container">
+    <div class="row row-cols-3 row-cols-md-3">
+        {% for res in category %}
+        <div class="col ">
+            <div class="card h-100">
+                  <a href="loandata"><img class="card-img-top" src="{{res.image.url}}"></a>
+                <div class="card-body">
+                    <div>
+                        <h5 class="card-title">
+                                 {{res.name}}
+                        </h5>
+                        <p class="card-text">
+                            {{res.description}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<br>
+<div>
+    <img  class="my_image my_image_padding" src="{% static 'image/banner2.png' %}" alt="our products" >
+</div>
+{% endblock %}
+
+{% comment %} {% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div> 
+    <img  class="my_image my_image_padding" src="{% static 'image/banner1.png' %}" alt="our products" style= width=600 height=500>
+</div>
+
+
+
+<div class="container">
+    <div style="float: right">
+        <div class="row">
+        {% for catego in links %}
+<div class="col-md-3 why_col">
+    <div class="card">
+        <div class="why_image">
+            <img src="{{catego.images.url}}" alt="">
+    
+            </div>
+        </div>
+        <div class="why_content text-center">
+            <div class="why_title">{{catego.name}}<br><br>Great Team</div>
+            <div class="why_text">
+                <p>{{catego.description}}
+                    Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+        
+ 
+        {% comment %} <div>
+            <div class="row why_row">
+                  
+                <div class="col-lg-4 why_col">
+                   
+                    <div class="card" >
+                        <img  src="" alt="{{category.name}}">
+                       
+                            <div class="card-body">
+                                <div class="card-title"><br><br>Fast service</div>
+
+                                <p>
+                                <br>Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo.</p>
+                            </div>
+                        </div>
+                    </div>  {% endcomment %}
+             
+        {% comment %} </div>
+    </div>
+</div>
+          
+
+    
+       
+        
+                
+       
+{% endfor %}
+
+
+
+<br>
+<div> 
+    <img  class="my_image my_image_padding" src="{% static 'image/banner2.png' %}" alt="our products" >
+</div>
+         {% endcomment %}
+       
+       
+    
+

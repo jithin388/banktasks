@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+        <title>
+            loan page
+        </title>
+    </head>
+<style>
+    .contianer1{
+        widht:45%;
+        float:left;
+    }
+    .container2{
+        width:45%;
+        float:left;
+    }
+</style>
+    <body>
+        {% block content %}
+            <form action="loandata" method="post">
+                {% csrf_token %}
+<div class="container" align="center">
+        <div class="container1" ><div>
+            <label for=" loanername"> name</label>
+            </div><br><div>
+        <input type="text" name="loanername" id="loanername" placeholder="enter your name" >
+            </div><br><div>
+            <label for="phone">Phone</label>
+            </div><br><div>
+            <input type="text" name="phone" id="phone" placeholder="enter your phone">
+
+            </div><br><div>
+            <label for="aadhar">aadhar number</label>
+            </div><br><div>
+          <input type="text" name="aadhar" id="aadhar" placeholder="enter your aadhar" >
+          </div><br><div>
+          <input type="file" name="aadhar_img" >
+          </div><br><div>
+
+
+    <label for="address"></label><br>
+          <textarea id="address" name="address" row="4" col="24" placeholder="enter your Address"></textarea>
+
+</div><br><div>
+
+<label for="pan">pan number</label>
+</div><br><div>
+            <input type="text" name="pan" id="pan"placeholder="enter your pan crad number">
+            </div><div>
+            <input type="file" name="pan_img" >
+</div><br>
+
+
+
+<div>
+    <label for="loantype"> Loan type</label>
+    </div><br><div>
+            <input type="radio" name="loantype" id="personal" value="personal" >
+            <label for="personal">personal loan</label>
+            <input type="radio" name="loantype" id="housing" value="housing">
+            <label for="housing">housing loan</label>
+            <input type="radio" name="loantype" id="gold" value="gold">
+            <label for="gold">gold loan</label>
+            </div>
+            <br/>
+ <div class="container2" >
+     <div>
+     <label for="email">email</label></div>
+     <br><div><input type="email" name="email" id="email" placeholder="enter your email"></div>
+     <br>
+     <div><label for="gender">Gender</label></div>
+     <br><div>
+          <input type="radio" name="l_gender" id="male" value="male">
+                                    <label for="male">male</label>
+                                    <input type="radio" name="l_gender" id="female" value="female">
+                                    <label for="female">female</label>
+                                    <input type="radio" name="l_gender" id="other">
+                                    <label for="other">other</label></div>
+                                    <br>
+    <div>
+        <label for="loanamount"> Loan amount</label></div>
+        <br><div>
+            <input type="text" name="loanamount" id="loanamount" placeholder="enter your loanamount">
+
+            </div>
+</div>
+<br>
+<input type="submit" id="submit">
+</form>
+</div>
+</div>
+{% endblock %}
+    </body>
+</html>
